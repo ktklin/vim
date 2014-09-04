@@ -1,0 +1,155 @@
+" Vim syntax file
+" Language:     sybase transact sql
+" Maintainer:   Kurt Klinner <kurt at mobux dot de>
+" Last Change:  2009 Mar 01
+
+if exists("b:current_syntax")
+  finish
+endif
+
+syn case ignore
+
+" The SQL reserved words, defined as keywords.
+
+syn keyword sqlStatement  add all alter and any arith_overflow as asc at authorization avg
+syn keyword sqlStatement  begin between break browse bulk by
+syn keyword sqlStatement  cascade case char_convert check checkpoint close clustered coalesce
+syn keyword sqlStatement  commit compute confirm connect constraint continue controlrow convert
+syn keyword sqlStatement  count count_big create current cursor
+syn keyword sqlStatement  database dbcc deallocate declare decrypt decrypt_default default delete
+syn keyword sqlStatement  desc deterministic disk distinct drop dummy dump
+syn keyword sqlStatement  else encrypt end endtran errlvl errordata errorexit escape except exclusive
+syn keyword sqlStatement  exec execute exists exit exp_row_size external
+syn keyword sqlStatement  fetch fillfactor for foreign from
+syn keyword sqlStatement  goto grant group having
+syn keyword sqlStatement  holdlock
+syn keyword sqlStatement  identity identity_gap identity_start if in index inout insensitive insert
+syn keyword sqlStatement  install intersect into is isolation
+syn keyword sqlStatement  jar join
+syn keyword sqlStatement  key kill
+syn keyword sqlStatement  level like lineno load lock
+syn keyword sqlStatement  materialized max max_rows_per_page min mirror mirrorexit modify mon_authorize_non_sa
+syn keyword sqlStatement  mon_rpc_attach mon_rpc_connect
+syn keyword sqlStatement  national noholdlock nonclustered not null nullif numeric_truncation
+syn keyword sqlStatement  of off offsets on once online only open option or order out output over
+syn keyword sqlStatement  partition perm permanent plan prepare primary print privileges proc procedure
+syn keyword sqlStatement  processexit proxy_table public
+syn keyword sqlStatement  quiesce
+syn keyword sqlStatement  raiserror read readpast readtext reconfigure references remove reorg replace
+syn keyword sqlStatement  replication reservepagegap return returns revoke role rollback rowcount rows rule
+syn keyword sqlStatement  save schema scroll select semi_sensitive set setuser shared shutdown some
+syn keyword sqlStatement  sp_abort_xact sp_activeroles sp_add_qpgroup sp_add_resource_limit sp_add_time_range
+syn keyword sqlStatement  sp_addalias sp_addengine sp_addexeclass sp_addextendedproc sp_addexternlogin sp_addgroup
+syn keyword sqlStatement  sp_addlanguage sp_addlogin sp_addlogin_rep sp_addmessage sp_addobjectdef sp_addremotelogin
+syn keyword sqlStatement  sp_addsegment sp_addserver sp_addtabledef sp_addthreshold sp_addtype sp_addumpdevice
+syn keyword sqlStatement  sp_adduser sp_altermessage sp_autoconnect sp_autoformat sp_autoformat sp_aux_computeprivs
+syn keyword sqlStatement  sp_aux_encr_lookup sp_aux_encr_verify_downgrade sp_aux_encrkey_info sp_aux_encrkey_lookup
+syn keyword sqlStatement  sp_aux_get_qpgroup sp_aux_getsize sp_aux_getsize sp_aux_parse_entity sp_aux_sargs_qpgroup
+syn keyword sqlStatement  sp_aux_sys_encr_passwd_lookup sp_aux_text sp_backup_metrics sp_bindcache sp_bindefault
+syn keyword sqlStatement  sp_bindexeclass sp_bindmsg sp_bindrule sp_cacheconfig sp_cachestrategy sp_changedbowner
+syn keyword sqlStatement  sp_changegroup sp_checknames sp_checkreswords sp_checksource sp_chgattribute sp_chklangparam
+syn keyword sqlStatement  sp_clearpsexe sp_clearstats sp_client_addr sp_cmp_all_qplans sp_cmp_qplans sp_column_privileges
+syn keyword sqlStatement  sp_columns sp_commit_xact sp_commonkey sp_config_rep_agent sp_configure sp_configure sp_copy_all_qplans
+syn keyword sqlStatement  sp_copy_qplan sp_countmetadata sp_create_syscoordinations sp_cursorinfo sp_databases sp_datatype_info
+syn keyword sqlStatement  sp_dbcc_scale_factor sp_dboption sp_dboption sp_dbrecovery_order sp_dbremap sp_dbxt_recreate_proc
+syn keyword sqlStatement  sp_dcachestats_obj_details sp_ddlgen sp_ddlgen_database sp_ddlgen_db_print_alterdb sp_ddlgen_help
+syn keyword sqlStatement  sp_ddlgen_permissions sp_default_charset sp_defaultdb sp_defaultlanguage sp_defaultloc sp_depends
+syn keyword sqlStatement  sp_depends_cols sp_deviceattr sp_diskdefault sp_displaylevel sp_displaylogin sp_displayroles sp_do_poolconfig
+syn keyword sqlStatement  sp_downgrade sp_downgrade_systabstats sp_drop_all_qplans sp_drop_metrics sp_drop_object sp_drop_qpgroup
+syn keyword sqlStatement  sp_drop_qplan sp_drop_query_tuning sp_drop_resource_limit sp_drop_time_range sp_dropalias sp_dropdevice
+syn keyword sqlStatement  sp_dropdevice sp_dropengine sp_dropexeclass sp_dropextendedproc sp_dropexternlogin sp_dropglockpromote
+syn keyword sqlStatement  sp_dropgroup sp_dropkey sp_droplanguage sp_droplockpromote sp_droplogin sp_dropmessage sp_dropobjectdef
+syn keyword sqlStatement  sp_dropremotelogin sp_droprowlockpromote sp_dropsegment sp_dropserver sp_droptabledef sp_dropthreshold
+syn keyword sqlStatement  sp_droptype sp_dropuser sp_drv_column_default sp_drv_typeinfo sp_dtx_purge_completedxacts sp_dumpoptimize
+syn keyword sqlStatement  sp_encryption sp_engine sp_errorlog sp_errorlog_showhelp sp_estspace sp_exec_SQL sp_export_qpgroup sp_extendsegment
+syn keyword sqlStatement  sp_extengine sp_familylock sp_filter_metrics sp_find_qplan sp_fix_dtm_ha_roles sp_fixindex sp_fkeys
+syn keyword sqlStatement  sp_flush_query_tuning sp_flushmetrics sp_flushstats sp_forceonline_db sp_forceonline_object sp_forceonline_page
+syn keyword sqlStatement  sp_foreignkey sp_freedll sp_gen_login_id sp_gen_timerange_id sp_getmessage sp_getmessage sp_getopts
+syn keyword sqlStatement  sp_ha_check_certified sp_help sp_help_metrics sp_help_params sp_help_qpgroup sp_help_qplan sp_help_query_tuning
+syn keyword sqlStatement  sp_help_rep_agent sp_help_resource_limit sp_helpapptrace sp_helpartition sp_helpcache sp_helpcomputedcolumn
+syn keyword sqlStatement  sp_helpconfig sp_helpconstraint sp_helpdb sp_helpdevice sp_helpextendedproc sp_helpexternlogin sp_helpgroup
+syn keyword sqlStatement  sp_helpindex sp_helpjava sp_helpjoins sp_helpkey sp_helplanguage sp_helplog sp_helpmaplogin sp_helpobjectdef
+syn keyword sqlStatement  sp_helpremotelogin sp_helprotect sp_helpsegment sp_helpserver sp_helpsort sp_helptext sp_helptext_usage
+syn keyword sqlStatement  sp_helpthreshold sp_helpuser sp_hidetext sp_ijdbc_aux_computeprivs sp_ijdbc_class_for_name sp_ijdbc_classes_in_jar
+syn keyword sqlStatement  sp_ijdbc_columns sp_ijdbc_convert_datatype sp_ijdbc_datatype_info sp_ijdbc_default_charset sp_ijdbc_escapeliteralforlike
+syn keyword sqlStatement  sp_ijdbc_exportkey sp_ijdbc_fkeys sp_ijdbc_function_escapes sp_ijdbc_getbestrowidentifier sp_ijdbc_getcatalogs
+syn keyword sqlStatement  sp_ijdbc_getcolumnprivileges sp_ijdbc_getcrossreferences sp_ijdbc_getindexinfo sp_ijdbc_getisolationlevels
+syn keyword sqlStatement  sp_ijdbc_getprocedurecolumns sp_ijdbc_getschemas sp_ijdbc_gettableprivileges sp_ijdbc_getudts sp_ijdbc_getversioncolumns
+syn keyword sqlStatement  sp_ijdbc_getxacoordinator sp_ijdbc_importkey sp_ijdbc_jar_by_name sp_ijdbc_jar_for_class sp_ijdbc_mda
+syn keyword sqlStatement  sp_ijdbc_primarykey sp_ijdbc_sql_type_name sp_ijdbc_stored_procedures sp_ijdbc_tables sp_import_qpgroup
+syn keyword sqlStatement  sp_index_row_size_est sp_index_space_est sp_indsuspect sp_inform sp_iqdbcheck sp_is_dbo sp_is_valid_user
+syn keyword sqlStatement  sp_jdbc_class_for_name sp_jdbc_classes_in_jar sp_jdbc_columns sp_jdbc_computeprivs sp_jdbc_convert_datatype
+syn keyword sqlStatement  sp_jdbc_datatype_info sp_jdbc_datatype_info_cts sp_jdbc_escapeliteralforlike sp_jdbc_exportkey sp_jdbc_fkeys
+syn keyword sqlStatement  sp_jdbc_function_escapes sp_jdbc_getbestrowidentifier sp_jdbc_getcatalogs sp_jdbc_getcatalogs_cts
+syn keyword sqlStatement  sp_jdbc_getcolumnprivileges sp_jdbc_getcrossreferences sp_jdbc_getindexinfo sp_jdbc_getisolationlevels
+syn keyword sqlStatement  sp_jdbc_getprocedurecolumns sp_jdbc_getschemas sp_jdbc_getschemas_cts sp_jdbc_gettableprivileges sp_jdbc_getudts
+syn keyword sqlStatement  sp_jdbc_getversioncolumns sp_jdbc_getxacoordinator sp_jdbc_importkey sp_jdbc_jar_by_name sp_jdbc_jar_for_class
+syn keyword sqlStatement  sp_jdbc_primarykey sp_jdbc_stored_procedures sp_jdbc_tables sp_ldapadmin sp_listener sp_listsuspect_db
+syn keyword sqlStatement  sp_listsuspect_object sp_listsuspect_page sp_lmconfig sp_loaddbupgrade sp_localtypename sp_lock sp_locklogin
+syn keyword sqlStatement  sp_logdevice sp_logintrigger sp_logiosize sp_lookup sp_makesuspect_obj sp_maplogin sp_markreport sp_mda
+syn keyword sqlStatement  sp_memlog sp_metrics sp_modify_resource_limit sp_modify_time_range sp_modifylogin sp_modifystats sp_modifythreshold
+syn keyword sqlStatement  sp_mon_archive_data sp_mon_archive_deadlock sp_mon_archive_genSQL sp_mon_archive_monTable sp_mon_gen_columnlist
+syn keyword sqlStatement  sp_monitor sp_monitor_archive sp_monitor_archive_usage sp_monitor_check_permission sp_monitor_connection
+syn keyword sqlStatement  sp_monitor_connection_usage sp_monitor_crt_mon_config sp_monitor_deadlock sp_monitor_deadlock_count_by
+syn keyword sqlStatement  sp_monitor_deadlock_driver sp_monitor_deadlock_getopts sp_monitor_deadlock_usage sp_monitor_deadlock_verbose
+syn keyword sqlStatement  sp_monitor_disable sp_monitor_disable_usage sp_monitor_enable sp_monitor_enable_usage sp_monitor_event
+syn keyword sqlStatement  sp_monitor_getcfgnum sp_monitor_getcfgval sp_monitor_help sp_monitor_list sp_monitor_list_montypes
+syn keyword sqlStatement  sp_monitor_parse_archive_cmd sp_monitor_procedure sp_monitor_procstack sp_monitor_procstack_usage sp_monitor_report
+syn keyword sqlStatement  sp_monitor_report_usage sp_monitor_server sp_monitor_statement sp_monitor_trace sp_monitor_trace_level
+syn keyword sqlStatement  sp_monitor_verify_cfgval sp_monitor_verify_setup sp_monitorconfig sp_multdb_addtogroup sp_multdb_bind
+syn keyword sqlStatement  sp_multdb_creategroup sp_multdb_dropgroup sp_multdb_removefromgroup sp_multdb_show sp_multdb_unbind
+syn keyword sqlStatement  sp_multdb_unbindall_db sp_namecrack sp_namecrack sp_object_stats sp_objectsegment sp_odbc_columns sp_odbc_computeprivs
+syn keyword sqlStatement  sp_odbc_databases sp_odbc_datatype_info sp_odbc_fkeys sp_odbc_getcolumnprivileges sp_odbc_getindexinfo
+syn keyword sqlStatement  sp_odbc_getprocedurecolumns sp_odbc_gettableprivileges sp_odbc_getversioncolumns sp_odbc_primarykey sp_odbc_server_info
+syn keyword sqlStatement  sp_odbc_stored_procedures sp_odbc_tables sp_oledb_columns sp_oledb_computeprivs sp_oledb_databases sp_oledb_datatype_info
+syn keyword sqlStatement  sp_oledb_fkeys sp_oledb_getcolumnprivileges sp_oledb_getindexinfo sp_oledb_getprocedurecolumns sp_oledb_gettableprivileges
+syn keyword sqlStatement  sp_oledb_primarykey sp_oledb_statistics sp_oledb_stored_procedures sp_oledb_tables sp_oledb_views sp_optimal_text_space
+syn keyword sqlStatement  sp_options sp_passthru sp_password sp_password_rep sp_passwordpolicy sp_pkeys sp_placeobject sp_plan_dbccdb
+syn keyword sqlStatement  sp_poolconfig sp_post_xpload sp_primarykey sp_probe_xact sp_procqmode sp_procxmode sp_procxmode sp_prtsybsysmsgs
+syn keyword sqlStatement  sp_query_tuning sp_rebuild_text sp_recompile sp_remap sp_remoteoption sp_remotesql sp_remove_xact sp_rename
+syn keyword sqlStatement  sp_rename_qpgroup sp_renamedb sp_replace_string_plus sp_reportstats sp_reptostandby sp_rjs_register sp_rjs_retrieve
+syn keyword sqlStatement  sp_rjs_unregister sp_role sp_scan_xact sp_sendmsg sp_server_info sp_serverinfo sp_serveroption sp_servertype
+syn keyword sqlStatement  sp_set_password_rep sp_set_qplan sp_setlangalias sp_setlockpromote sp_setpglockpromote sp_setpsexe sp_setrepcol
+syn keyword sqlStatement  sp_setrepdefmode sp_setreplicate sp_setrepproc sp_setreptable sp_setrowlockpromote sp_setsuspect_error
+syn keyword sqlStatement  sp_setsuspect_granularity sp_setsuspect_threshold sp_shmdumpconfig sp_shmdumpconfig_config sp_shmdumpdisp
+syn keyword sqlStatement  sp_shmdumpdrop sp_shmdumpsize sp_show_metrics sp_show_options sp_show_query_tuning sp_showcontrolinfo
+syn keyword sqlStatement  sp_showexeclass sp_showplan sp_showpsexe sp_showtext sp_showtext_check_print sp_showtext_output sp_showtext_print_line
+syn keyword sqlStatement  sp_showtext_sproc_tagline sp_showtext_usage sp_spaceusage sp_spaceusage_cnvtounit sp_spaceusage_object
+syn keyword sqlStatement  sp_spaceusage_object_archdata sp_spaceusage_object_genoutput sp_spaceusage_object_init sp_spaceusage_object_populate
+syn keyword sqlStatement  sp_spaceusage_paramcheck sp_spaceusage_processusing sp_spaceusage_runcmd sp_spaceusage_showhelp sp_spaceusage_showhelp_all
+syn keyword sqlStatement  sp_spaceusage_showhelp_archive sp_spaceusage_showhelp_display sp_spaceusage_showhelp_report sp_spaceusage_tranlog
+syn keyword sqlStatement  sp_spaceusage_tranlog_archdata sp_spaceusage_tranlog_genoutpu sp_spaceusage_tranlog_init sp_spaceused sp_special_columns
+syn keyword sqlStatement  sp_split_string sp_sproc_columns sp_sql_type_name sp_ssladmin sp_start_rep_agent sp_start_xact sp_stat_xact sp_statistics
+syn keyword sqlStatement  sp_stop_rep_agent sp_stored_procedures sp_substring_count sp_sysmon sp_sysmon_analyze sp_sysmon_analyze_mda
+syn keyword sqlStatement  sp_sysmon_appmgmt sp_sysmon_collect sp_sysmon_collect_mda sp_sysmon_dcache sp_sysmon_dcache_dtl sp_sysmon_dcache_sum
+syn keyword sqlStatement  sp_sysmon_dcachestats sp_sysmon_diskio sp_sysmon_esp sp_sysmon_hk sp_sysmon_index sp_sysmon_kernel sp_sysmon_locks
+syn keyword sqlStatement  sp_sysmon_maccess sp_sysmon_mdcache sp_sysmon_memory sp_sysmon_netio sp_sysmon_parallel sp_sysmon_pcache
+syn keyword sqlStatement  sp_sysmon_recovery sp_sysmon_repagent sp_sysmon_taskmgmt sp_sysmon_wpm sp_sysmon_xactmgmt sp_sysmon_xactsum
+syn keyword sqlStatement  sp_table_privileges sp_tables sp_tempdb sp_transactions sp_unbindcache sp_unbindcache_all sp_unbindefault
+syn keyword sqlStatement  sp_unbindexeclass sp_unbindmsg sp_unbindrule sp_update_authmech_value sp_validaltlang sp_validateconfigname
+syn keyword sqlStatement  sp_validlang sp_version sp_versioncrack sp_volchanged sp_who statistics stringsize stripe sum syb_aux_colbit
+syn keyword sqlStatement  syb_aux_expandbitmap syb_aux_printprivs syb_aux_privexor syb_aux_privnots syb_aux_privsand syb_aux_privunion
+syn keyword sqlStatement  syb_identity syb_restree syb_terminate
+syn keyword sqlStatement  table temp temporary textsize to tracefile tran transaction trigger truncate tsequal
+syn keyword sqlStatement  union unique unpartition update use user user_option using
+syn keyword sqlStatement  values varying view
+syn keyword sqlStatement  waitfor when where while with work writetext
+syn keyword sqlStatement  xmlextract xmlparse xmltable xmltest
+
+
+syn region sqlComment    start="/\*"  end="\*/" contains=sqlTodo
+syn match sqlComment    "--.*$" contains=sqlTodo
+
+syn sync ccomment sqlComment
+
+if version >= 508 || !exists("did_sql_syn_inits")
+  command -nargs=+ HiLink hi def link <args>
+  HiLink sqlComment     Comment
+  HiLink sqlStatement   Statement
+
+  delcommand HiLink
+endif
+
+let b:current_syntax = "sql"
+
+" vim: ts=8
