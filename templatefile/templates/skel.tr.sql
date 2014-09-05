@@ -1,11 +1,3 @@
-/**********************************************************************
- * TRIGGER NAME:  @FILE@
- * AUTHOR:          @AUTHOR@
- * DATE:            @DATE@
- * VERSION:         @VERSION@
- * PURPOSE:
- **********************************************************************/
-
 IF EXISTS( SELECT * FROM sysobjects WHERE name='@FILE@' AND type='TR' )
 BEGIN
         DROP TRIGGER @FILE@
@@ -14,15 +6,17 @@ go
 
 CREATE TRIGGER @FILE@ ON @BASETABLE@ FOR @EVENT@
 AS
------------------------------------------
--- TRIGGER NAME:      @FILE@
--- BASETABLE:         @BASETABLE@
--- EVENT:             @EVENT@
--- AUTHOR:            @AUTHOR@
--- DATE:              @DATE@
--- VERSION:           @VERSION@
------------------------------------------
-
+/******************************************************************
+* Author:            @AUTHOR@
+* Email:             @EMAIL@
+* URL:               @URL@
+* Trigger:           @FILE@
+* Basetable:         @BASETABLE@
+* Event:             @EVENT@
+* Date:              @DATE@
+* Version:           @VERSION@
+* Notes:
+ ******************************************************************/
 
 /***************************
  ** PLACE YOUR CODE HERE  **
